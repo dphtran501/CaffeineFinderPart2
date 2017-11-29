@@ -33,6 +33,15 @@ import java.util.List;
 
 //DONE: Implement the following interfaces:
 //DONE: GoogleApiClient.ConnectionCallbakcs, GoogleApiClient.OnConnectionFailedListener and LocationListener
+
+/**
+ * This activity displays a list of local coffee shops in the area, as well as a Google map showing
+ * the user's location and the locations of all the coffee shops in the list.
+ *
+ * @author Derek Tran
+ * @version 1.0
+ * @since November 28, 2017
+ */
 public class CaffeineListActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener
 {
 
@@ -148,7 +157,7 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
         {
             // Don't have either COARSE or FINE permissions, so request them:
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, COARSE_LOCATION_REQUEST_CODE);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, COARSE_LOCATION_REQUEST_CODE);
             return;
         }
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
@@ -167,8 +176,7 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
             mLastLocation = new Location("");
             mLastLocation.setLatitude(0.0);
             mLastLocation.setLongitude(0.0);
-        }
-        else
+        } else
         {
             mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         }

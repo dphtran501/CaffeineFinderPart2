@@ -15,7 +15,16 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class CaffeineDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
+/**
+ * This activity displays the details of a specific coffee shop selected in <code>CaffeineListActivity</code>.
+ * as well as the location of the coffee shop on Google Maps.
+ *
+ * @author Derek Tran
+ * @version 1.0
+ * @since November 28, 2017
+ */
+public class CaffeineDetailsActivity extends AppCompatActivity implements OnMapReadyCallback
+{
 
     private GoogleMap mMap;
     private CaffeineLocation mSelectedCaffeineLocation;
@@ -23,7 +32,8 @@ public class CaffeineDetailsActivity extends AppCompatActivity implements OnMapR
     private Location mMyLocation;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caffeine_details);
 
@@ -40,13 +50,13 @@ public class CaffeineDetailsActivity extends AppCompatActivity implements OnMapR
         //DONE: Get the parcelable MyLocation from the intent and assign it to the member variable mMyLocation
         mMyLocation = getIntent().getExtras().getParcelable("MyLocation");
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.caffeineDetailsMapFragment);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.caffeineDetailsMapFragment);
         mapFragment.getMapAsync(this);
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(GoogleMap googleMap)
+    {
         mMap = googleMap;
 
         LatLng coordinate = new LatLng(mSelectedCaffeineLocation.getLatitude(), mSelectedCaffeineLocation.getLongitude());
