@@ -69,7 +69,7 @@ public class CaffeineDetailsActivity extends AppCompatActivity implements OnMapR
         LatLng myCoordinate = new LatLng(mMyLocation.getLatitude(), mMyLocation.getLongitude());
         mMap.addMarker(new MarkerOptions().position(myCoordinate).title("Current Location").icon(BitmapDescriptorFactory.fromResource(R.drawable.my_marker)));
 
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(myCoordinate).zoom(18.0f).build();
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(coordinate).zoom(18.0f).build();
         CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
         mMap.moveCamera(cameraUpdate);
     }
