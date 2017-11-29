@@ -135,6 +135,7 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
             Intent detailsIntent = new Intent(this, CaffeineDetailsActivity.class);
 
             detailsIntent.putExtra("SelectedLocation", selectedCaffeineLocation);
+            detailsIntent.putExtra("MyLocation", mLastLocation);
             startActivity(detailsIntent);
         }
     }
